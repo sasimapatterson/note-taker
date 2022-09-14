@@ -20,7 +20,7 @@ app.get('/notes', (req, res) => {
 //API routes
 app.get('/api/notes', (req, res) => {
     
-    res.json(`${req.method} request received to get notes`)
+    // res.json(`${req.method} request received to get notes`)
     
     console.info(`${req.method} request received to get reviews`)
     
@@ -35,6 +35,13 @@ app.get('/api/notes', (req, res) => {
         return
     })
 });
+
+//Post 
+app.post('/api/notes', (req, res) => {
+    
+})
+
+)
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'))
