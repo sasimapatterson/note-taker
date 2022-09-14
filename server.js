@@ -32,6 +32,7 @@ app.get('/api/notes', (req, res) => {
           const parsedNotes = JSON.parse(data);
           res.json(parsedNotes);
         }
+        return
     })
 });
 
@@ -40,6 +41,7 @@ app.get('*', (req, res) => {
 });
 
 
+//Listening to the port
 app.listen(PORT, () => 
     console.log(`App listening at http://localhost:${PORT}`)
 );
