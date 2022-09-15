@@ -20,7 +20,6 @@ app.get('/notes', (req, res) => {
 });
 
 //Get request for notes
-// Read the db.json file and return all saved not as JSON
 app.get('/api/notes', (req, res) => {
       
     //Read db.json file and return all saved notes as JSON. Return the contents of 'db.json' as a string in the variable "data".
