@@ -68,9 +68,9 @@ app.delete('/api/notes/:id', (req, res) => {
     console.log(getNotes);
 
     let noteId = req.params.id;
-    // console.log(noteId);
+   
     let noteIndex = getNotes.findIndex((note) => note.noteId === noteId);
-    // console.log(noteIndex);
+   
     let deletedNote = getNotes.splice(noteIndex, 1);
 
     res.send(deletedNote);
@@ -78,13 +78,7 @@ app.delete('/api/notes/:id', (req, res) => {
     fs.writeFileSync (
         './db/db.json',
         JSON.stringify(getNotes, null, 4));
-        res.json(getNotes);
-       
-    // let id = req.params.id;
-    // let noteIndex = newNote.findIndex((note) => note.id === id);
-
-    // let deletedNote = newNote.splice(noteIndex, 1);
-    
+        res.json(getNotes);   
 });
 
 app.get('*', (req, res) => {
