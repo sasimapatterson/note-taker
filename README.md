@@ -5,7 +5,7 @@ Users can add, retrieve and delete notes.
 1. [Descriptions](#descriptions)
 2. [Tech used](#tech-use)
 3. [Visuals](#visuals)
-4. [Links](#links) 
+4. [Link](#link) 
 
 ## Descriptions
 For users : A simple but essential app. Life can get hectic and overwhelme with activities and responsibilities. This easy to use app allows the user to add, retrieve and delete notes. Make it convenient to check the future event or track past activities. 
@@ -39,7 +39,5 @@ Notes can be saved by clicking on the save button on the top right corner. This 
 ![note-taker-add](./public/assets/images/note-taker-add.png)
 
 
-## Links
-[GitHub Pages]()
-
-[Heroku]()
+## Link
+[Heroku](https://stormy-meadow-83428.herokuapp.com/)
