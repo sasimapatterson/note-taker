@@ -1,3 +1,17 @@
 [
-   
+    {
+        "title": "Group Study",
+        "text": "Tomorrow at 8pm. Bring tacos!",
+        "id": "ebdc"
+    },
+    {
+        "title": "Haircut",
+        "text": "Saturday 24th @ 9am.",
+        "id": "8db9"
+    },
+    {
+        "title": "Assignment Due",
+        "text": "Need to work on assignment and get it done before Tuesday night.",
+        "id": "a41b"
+    }
 ]

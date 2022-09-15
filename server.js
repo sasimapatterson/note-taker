@@ -20,6 +20,7 @@ app.get('/notes', (req, res) => {
 });
 
 //Get request for notes
+// Read the db.json file and return all saved not as JSON
 app.get('/api/notes', (req, res) => {
       
     //Read db.json file and return all saved notes as JSON. Return the contents of 'db.json' as a string in the variable "data".
@@ -34,7 +35,9 @@ app.get('/api/notes', (req, res) => {
     })
 });
 
-// Post request to receive a new note
+// Post request 
+// Get a new note to save on the request body.
+// Add note to the db.json file and return new note.
 app.post('/api/notes', (req, res) => {
 
     let getNotes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
@@ -58,14 +61,15 @@ app.post('/api/notes', (req, res) => {
      
 });
 
-// Look for the id in the getNotes array. 
+// Get a query parameter containg the id of a note to delete.
+// Read all notes from the db.json file.
+// Remove the note with the given id property.
+// Rewrite the notes to the db.json
 app.delete('/api/notes/:id', (req, res) => {
 
     console.info(`${req.method} request received to delete a note`);
     
     let getNotes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
-
-    console.log(getNotes);
 
     let noteId = req.params.id;
    
