@@ -1,6 +1,35 @@
 [
     {
-        "title":"Test Title",
-        "text":"Test text"
+        "title": "Test Title",
+        "text": "Test text"
+    },
+    {
+        "notes": {
+            "product": "Apple Wireless Keyboard",
+            "price": "$99",
+            "switch_type": "Scissor Switch",
+            "username": "TimApple",
+            "review": "It works for what I need it for, but the travel distance is almost non-existent",
+            "rating": 6,
+            "upvotes": 20,
+            "review_id": "7678"
+        },
+        "id": "cb62"
+    },
+    {
+        "notes": {
+            "title": "My Homework",
+            "text": "should be done by Friday"
+        },
+        "id": "51ef"
+    },
+    {
+        "title": "Birthday Party",
+        "id": "988e"
+    },
+    {
+        "title": "Study Group",
+        "text": "Tomorrow night at 8pm on Zoom",
+        "id": "ebb4"
     }
 ]

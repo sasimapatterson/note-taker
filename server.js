@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 
+//From the helpers folder this is to create unique Ids.
 const uuid = require('./helpers/uuid');
 
 const PORT = 3001;
@@ -19,11 +20,7 @@ app.get('/notes', (req, res) => {
 
 //API routes
 app.get('/api/notes', (req, res) => {
-    
-    // res.json(`${req.method} request received to get notes`)
-    
-    console.info(`${req.method} request received to get reviews`)
-    
+      
     //Read db.json file and return all saved notes as JSON.
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
         if (err) {
@@ -38,50 +35,42 @@ app.get('/api/notes', (req, res) => {
 
 // Post 
 app.post('/api/notes', (req, res) => {
-    const {note, title, id} = req.body;
+    const getNotes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
     
-    //If all the required propeties are present
-    if (note && title && id) {
         //Variable for the object we will save
         const newNote = {
-            note,
-            title,
-            note_id: uuid(),
+            title: req.body.title,
+            text: req.body.text,
+            id: uuid(),
         };
-
-        // Obtain exsiting notes
-        fs.readFile('./db/db.json', 'utf8', (err, data) => {
-            if (err) {
-                console.error(err);
-            } else {
-                //Convert string into JSON object
-              const parsedNotes = JSON.parse(data);
+        console.log(newNote);
 
               //Add a new note
-              parsedNotes.push(newNote);
+              getNotes.push(newNote);
              
               //Write updated notes back to the file
-              fs.writeFile (
+              fs.writeFileSync (
                 './db/db.json',
-                JSON.stringify(parsedNotes, null, 3),
-                (writeErr) =>
-                    writeErr
-                        ? console.error(writeErr)
-                        :console.info('Successfully update notes')
-              );
-            }
-        });
+                JSON.stringify(getNotes, null, 4));
+                res.json(getNotes);
+        //         (writeErr) =>
+        //             writeErr
+        //                 ? console.error(writeErr)
+        //                 :console.info('Successfully update notes')
+        //       );
+        //     }
+        // });
 
-        const response = {
-            status: 'success',
-            body: newNote,
-        };
+    //     const response = {
+    //         status: 'success',
+    //         body: newNote,
+    //     };
 
-        console.log(response);
-        res.status(201).json(response);
-    } else {
-        res.status(500).json('Error in saving note')
-    }
+    //     console.log(response);
+    //     res.status(201).json(response);
+    // } else {
+    //     res.status(500).json('Error in saving note')
+    // }
 });
 
 app.get('*', (req, res) => {
