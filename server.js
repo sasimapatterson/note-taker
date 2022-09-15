@@ -59,16 +59,18 @@ app.post('/api/notes', (req, res) => {
 });
 
 // Look for the id in the getNotes array. 
-app.delete('/api/notes/id:', (req, res) => {
+app.delete('/api/notes/:id', (req, res) => {
 
     console.info(`${req.method} request received to delete a note`);
     
     let getNotes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
 
+    console.log(getNotes);
+
     let noteId = req.params.id;
-
+    // console.log(noteId);
     let noteIndex = getNotes.findIndex((note) => note.noteId === noteId);
-
+    // console.log(noteIndex);
     let deletedNote = getNotes.splice(noteIndex, 1);
 
     res.send(deletedNote);
@@ -77,6 +79,7 @@ app.delete('/api/notes/id:', (req, res) => {
         './db/db.json',
         JSON.stringify(getNotes, null, 4));
         res.json(getNotes);
+       
     // let id = req.params.id;
     // let noteIndex = newNote.findIndex((note) => note.id === id);
 
@@ -85,7 +88,7 @@ app.delete('/api/notes/id:', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'))
+    res.sendFile(path.join(__dirname, '/public/index.html'))
 });
 
 
